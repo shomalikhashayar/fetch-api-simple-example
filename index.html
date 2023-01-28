@@ -10,7 +10,7 @@
     * {
       margin: 0;
       padding: 0;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     }
 
     .avatars {
@@ -26,8 +26,6 @@
       margin: 24px;
       width: 100px;
       box-shadow: 0 0 25px 0 rgba(179, 179, 179, 0.3);
-    }
-    .avatars img:hover {
     }
 
     .first-names {
@@ -64,22 +62,44 @@
     .last-names h1 {
       margin: 34px;
     }
-    .footer{
-        padding: 25px;
-        background-color: #171717;
-        color: white;
-        text-align: center;
+    .footer {
+      padding: 25px;
+      background-color: #171717;
+      color: white;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 600px) {
+      body {
+        overflow-x: hidden;
+      }
+      .avatars {
+        height: 1700px;
+        display: flex;
+        flex-direction: column;
+      }
+      .avatars img {
+        width: 200px;
+        margin: 32px;
+      }
+
+      .remove-on-mobile{
+
+        display: none;
+      }
     }
   </style>
   <body>
     <div class="container">
       <div id="avatars" class="avatars"></div>
-      <div id="users-id" class="users-id"></div>
-      <div id="first-names-place-from-api" class="first-names"></div>
-      <div id="last-names-place-from-api" class="last-names"></div>
+      <div class="remove-on-mobile">
+        <div id="users-id" class="users-id"></div>
+        <div id="first-names-place-from-api" class="first-names"></div>
+        <div id="last-names-place-from-api" class="last-names"></div>
+      </div>
     </div>
     <div class="footer">
-        <p>Made with ❤️ by Khashayar Shomali.</p>
+      <p>Made with ❤️ by Khashayar Shomali.</p>
     </div>
   </body>
 </html>
@@ -91,7 +111,7 @@
       return res.json();
     })
     .then((data) => {
-      console.log(data.data);
+      console.log("Khashayar Shomali");
       data.data.forEach((items) => {
         const usersID = document.querySelector("#users-id");
         const avatars = document.querySelector("#avatars");
